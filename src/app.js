@@ -1,4 +1,5 @@
 import express from "express"
+import cors from "cors"
 import cookieParser from "cookie-parser"
 
 const app= express()
@@ -12,5 +13,14 @@ app.use(express.json({limit:"16KB"}))  //Parses incoming requests with JSON payl
 app.use(express.urlencoded({extended:true,limit : "16KB"})) //Parses incoming requests with URL-encoded payloads (from forms)
 app.use(express.static("public"))//Serves static files (like HTML, CSS, JS, images) from the public folde
 app.use(cookieParser())
+
+//routes
+
+import userRouter from './routs/user.routs.js'
+
+
+//routes declerations
+app.use("/api/v1/users",userRouter)
+
 
 export {app}
