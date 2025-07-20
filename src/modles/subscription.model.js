@@ -1,4 +1,4 @@
-import mongose,{Schema} from "mongoose"
+import mongoose,{Schema} from "mongoose"
 
 const subscriptionSchema = new Schema({
 
@@ -13,4 +13,4 @@ const subscriptionSchema = new Schema({
     }
 },{timeseries: true})
 
-  
+  export const User = mongoose.model("subscription", subscriptionSchema)
